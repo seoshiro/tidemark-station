@@ -1,0 +1,11 @@
+# Reference study, voxel revision
+
+2026-10-15, https://datathon.com.kz/ru, installed Chrome at 1440×1000. Two attempts to connect the user's browser failed with `trusted Node process exited unexpectedly`; the installed Chrome/Playwright fallback was used. No reference assets or client code were copied.
+
+Observed, with local screenshots: the entrance presents sound/silent choices; after opt-in, letter blocks assemble above a prominent textured floating island. A fisherman, rod and long line connect the hero to later sections. Repeated coarse pixel materials, bright upper planes, dark side faces and foreground/distant islands establish depth. The itinerary remains pinned for approximately four viewport heights while a small ship follows successive islands; stepping back restores the earlier ship position. The FAQ appears as a physical opening book with page depth and tab/arrow controls. A collectible was removed from the hook and the persistent inventory changed from empty to one occupied cell. Slow wheel motion, a fast jump, stops and reverse travel were exercised.
+
+The first book attempt selected a responsive accordion counterpart behind the desktop book; pointer interception prevented activation. The repeat used the visible desktop tab and keyboard activation, which changed the displayed page. Captures are under the private `evidence/v2/reference/` directory.
+
+Sound was explicitly enabled and running Web Audio contexts were observed, but this runtime does not provide an auditory listening assessment. No assertion is made about the reference's actual mix, timbre, wind intensity, material sound or ducking. Those remain requirements to implement and measure in Tidemark, rather than claimed observations. The reference's multiple observed contexts are not an architectural pattern to copy.
+
+Design inference: Tidemark needs readable object scale, a continuous protagonist and tangible collection, rather than a thin pixel-font treatment. Its original coastal world will use a genuine perspective projection of textured cubic terrain/buildings, a travelling lantern, wood/copper/glass salvage and a lighthouse optic finale. Its geometry, textures, sound, narrative and branding remain its own.

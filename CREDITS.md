@@ -1,6 +1,7 @@
 # Credits and licenses
 
-- Lighthouse, coast, rocks, walkway, lantern, mechanisms, optical assembly, paper charts and all environmental graphics: original Canvas 2D geometry in `src/draw.ts`.
+- Lighthouse, coast, stepped cliffs, pier, hut, pines, boat, lantern, mechanisms, salvage, optical assembly and book: original 3D cuboid geometry in `src/coast.ts` and `src/worlds.ts`.
+- Perspective projection, face culling/depth ordering, seeded 16×16 material textures and snapshot renderer: original code in `src/voxel.ts`. No imported models, sprites, texture packs or image-generation services.
 - Music, coastal air and action sounds: original procedural Web Audio synthesis in `src/audio.ts`; no recordings, samples or external audio service.
 - Original artwork, fictional story and synthesized audio: CC0-1.0.
 - Source code: MIT, see `LICENSE`.
