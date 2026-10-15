@@ -1,0 +1,8 @@
+import {chromium} from 'playwright';
+import {mkdir,writeFile} from 'node:fs/promises';
+const phase=process.argv[2]||'final',widths=phase==='final'?[320,360,390,768,1440]:[390,1440];await mkdir(`evidence/${phase}`,{recursive:true});
+const browser=await chromium.launch({executablePath:'C:/Program Files/Google/Chrome/Application/chrome.exe'}),report=[];
+try{for(const width of widths){const page=await browser.newPage({viewport:{width,height:width>1000?1000:844},reducedMotion:'no-preference'});await page.addInitScript(()=>sessionStorage.setItem('tidemark-entry','seen'));const errors=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('http://127.0.0.1:5324/tidemark-station/',{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready);await page.waitForTimeout(500);await page.screenshot({path:`evidence/${phase}/shore-${width}.png`});
+ for(const p of width>900?[0,.35,.7,1]:[.5]){await page.locator('#mission').evaluate((el,p)=>window.scrollTo({top:window.scrollY+el.getBoundingClientRect().top+(el.getBoundingClientRect().height-window.innerHeight)*p,behavior:'instant'}),p);await page.waitForTimeout(500);await page.screenshot({path:`evidence/${phase}/workshop-${width}-${p}.png`});}
+ for(const id of ['journal','beacon']){await page.locator('#'+id).evaluate(el=>window.scrollTo({top:window.scrollY+el.getBoundingClientRect().top,behavior:'instant'}));await page.waitForTimeout(450);await page.screenshot({path:`evidence/${phase}/${id}-${width}.png`});}
+ report.push({width,overflow:await page.evaluate(()=>document.documentElement.scrollWidth>window.innerWidth),errors});await page.close();}await writeFile(`evidence/${phase}/capture.json`,JSON.stringify(report,null,2));console.log(JSON.stringify(report));}finally{await browser.close();}
